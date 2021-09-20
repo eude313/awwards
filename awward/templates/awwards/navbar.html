@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex" style="margin-left:-1.6rem"> <a href="{% url 'register' %}">register</a> <span style="margin-top:10.4px"> / </span> <a href="{% url 'signIn' %}" style="margin-left:-1.3rem">login</a> </li>
+      <li class="list-group-item">Home</li>
+      <li class="list-group-item">Winners</li>
+      <li class="list-group-item">Nominees</li>
+      <li class="list-group-item">Colections</li>
+      <li class="list-group-item">Accademy</li>
+      <li class="list-group-item">Professional directory</li>
+      <li class="list-group-item">Jobs & Talent</li>
+      <li class="list-group-item">Blog</li>
+      <li class="list-group-item">eBooks & publications</li>
+      <li class="list-group-item"> JURRY 2021</li>
+      <li class="list-group-item">Conferences</li>
+      </ul>
+      <small class="card-footer text-muted">activate black option <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label></small>
+    </div>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+   
+</body>
+</html> 
