@@ -4,7 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  font-family: "Lato", sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .sidenav {
@@ -66,10 +72,11 @@ body {
       <li class="list-group-item"> JURRY 2021</li>
       <li class="list-group-item">Conferences</li>
       </ul>
-      <small class="card-footer text-muted">activate black option <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label></small>
+      <small class="card-footer text-muted d-flex">Turn to black
+        <div class="form-check form-switch ms-4" style="width:13px;">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="myFunction()"/>
+        </div>
+        </small>
     </div>
 </div>
 
@@ -87,6 +94,11 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
+}
+
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
 }
 </script>
    
