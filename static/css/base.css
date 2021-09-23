@@ -52,3 +52,8 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+/* home */
+.see:hover img{
+    transform: scale(1.1);
+    transition: all 0.4s ease-out;
+}
