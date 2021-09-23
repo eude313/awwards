@@ -53,12 +53,17 @@ body {
     .sidenav a {font-size: 18px;}
 }
 /* home */
-.card:hover img{
+/* .cord:hover img{
     transform: scale(1.1);
-    transition: all 0.4s ease-in;
-} 
-.mast{
+    transition: 0.2s ease-out;
+}  */
+.mask-1{
     position: absolute;
-    bottom: 8px;
-    right: 16px;
+    top: 31.25rem;
+    width: 19.45vw;
+    border: 2px solid rgb(45, 8, 255);
+    opacity: 0;
 }
+.mask-1:hover {
+    opacity: 1;
+} 

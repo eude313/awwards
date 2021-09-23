@@ -1,4 +1,5 @@
 {% extends 'awwards/base.html' %}
+{% load static %}
 {% block content %}
 <div class="bg-image" style="cursor:pointer;">
    <a href=""> <img
@@ -16,32 +17,29 @@
 <div class="container-xxl">
     <div class="row mt-3">
         <div class="col-md-3">
-            <div class="border">
-                <div class='hover-overlay hover-zoom'>
+            <div class="border" style='cursor: pointer;'>
+                <div class='hover-overlay cord'>
                     <img
                     src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
                     class="card-img-top" style="height:29vh;"
                     alt="..."
                     />
                 </div>
-                <div class="mast" style="background-color: rgba(57, 192, 237, 0.2)">
+                <div class="mask-1">
                     <div class="d-flex justify-content-between">
-                        <div class="d-flex ">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
+                        <div>
+
+                        </div>
+                        <div class="hover-overlay ">
                             <button
                             type="button"
                             class="btn btn-outline-light btn-rounded"
                             data-mdb-ripple-color="light"
+                            style="height:5vh; font-size: 10px;"
                             >
                             Dark
                             </button>
-                        </div>
-                        <div>
-
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="px-2">
