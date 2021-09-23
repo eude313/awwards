@@ -6,8 +6,20 @@ def home(request):
     return render(request, 'awwards/home.html')
 
 def register(request):
-    
-    return render(request, 'auth/register.html')
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+        user = 
+        
+    else:
+        return render(request, 'auth/register.html')
 
 def signIn(request):
-    return render(request, 'auth/signIn.html')
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+    else:
+        return render(request, 'auth/signIn.html')
