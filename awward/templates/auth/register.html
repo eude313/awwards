@@ -1,23 +1,14 @@
 {% extends 'awwards/base.html' %}
 {% block content %}
-<div class="card border position-absolute top-50 start-50 translate-middle" style="width:20rem;">
+<div class="card border" style="width:20rem;">
   <form class="my-3 mx-3" method="POST" action="">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <!-- <div class="row mb-4"> -->
-
-    <!-- First name input -->
+    <!-- username input -->
     <div class="col mb-4">
       <div class="form-outline">
-        <input type="text" id="form3Example1" name="first_name" class="form-control" />
-        <label class="form-label" for="form3Example1">First name</label>
-      </div>
-    </div>
-
-    <!-- Last name input -->
-    <div class="col mb-4">
-      <div class="form-outline">
-        <input type="text" id="form3Example2" name="last_name" class="form-control" />
-        <label class="form-label" for="form3Example2">Last name</label>
+        <input type="text" id="form3Example2" name="username" class="form-control" />
+        <label class="form-label" for="form3Example2">Username</label>
       </div>
     </div>
 
@@ -61,6 +52,14 @@
         <i class="fab fa-github"></i>
       </button>
     </div>
+  </form>
+</div>
+
+<div class="card border position-absolute top-50 start-50 translate-middle" style="width:20rem;">
+  <form class="my-3 mx-3" method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-block mb-2">Sign up</button>
   </form>
 </div>
 {% endblock %}
