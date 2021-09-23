@@ -1,6 +1,6 @@
 {% extends 'awwards/base.html' %}
 {% block content %}
-<div class="bg-image see" style="cursor:pointer;">
+<div class="bg-image" style="cursor:pointer;">
    <a href=""> <img
       src="https://mdbootstrap.com/img/new/standard/city/053.jpg"
       class="img-fluid" style="width:100%; height:77vh; cursor:pointer;"
@@ -12,79 +12,90 @@
       </div>
     </div>
 </div>
-<div class="container-fluid">
+
+<div class="container-xxl">
     <div class="row mt-3">
         <div class="col-md-3">
-            <div class="card">
-                <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                class="card-img-top" style="height:25vh;"
-                alt="..."
-                />
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
+            <div class="border">
+                <div class='hover-overlay hover-zoom'>
+                    <img
+                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                    class="card-img-top" style="height:29vh;"
+                    alt="..."
+                    />
+                </div>
+                <div class="mast" style="background-color: rgba(57, 192, 237, 0.2)">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex ">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <button
+                            type="button"
+                            class="btn btn-outline-light btn-rounded"
+                            data-mdb-ripple-color="light"
+                            >
+                            Dark
+                            </button>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <div class="mt-2" style="font-size: 18px;">
+                        Bazenga
+                    </div>
+                    <div class="my-2 d-flex justify-content-between">
+                        <small style="font-size: 14px;">
+                            From
+                        </small>
+                        <small  style="font-size: 14px;">
+                            September 21, 2021
+                        </small>
+                    </div>
+                    <div class="d-flex pb-2 justify-content-between">
+                        <div>
+                            <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                            class="rounded-circle"
+                            height="30"
+                            alt=""
+                            loading="lazy"/>
+                            <small class="text-uppercase" style="font-size: 12px;">By Bazenga</small>
+                        </div>
+                        <div>
+                            <span class="badge rounded-pill"   data-mdb-toggle="tooltip"
+                            data-mdb-placement="top"
+                            data-mdb-html="true"
+                            title=" <em>Honorable mentions</em>" style=" background-color: #49c5b6; font-size: 9px;">HM</span>
+                            
+                            <span class="badge rounded-pill bg-secondary"   data-mdb-toggle="tooltip"
+                            data-mdb-placement="top"
+                            data-mdb-html="true"
+                            title=" <em>Developer Site</em>" style=" font-size: 9px;">DEV</span>
+                            
+                            <span class="badge rounded-pill bg-danger"   data-mdb-toggle="tooltip"
+                            data-mdb-placement="top"
+                            data-mdb-html="true"
+                            title=" <em>Site Of The Day</em>" style=" font-size: 9px;">SOTD</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                class="card-img-top" style="height:25vh;"
-                alt="..."
-                />
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                class="card-img-top" style="height:25vh;"
-                alt="..."
-                />
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                class="card-img-top" style="height:25vh;"
-                alt="..."
-                />
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the
-                    card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
+        <!-- two -->
+        
+        <!-- three -->
+        
+        <!-- four -->
+        
     </div>
 
 </div>
+
+
 
 
 {% endblock %}
