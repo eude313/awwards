@@ -1,9 +1,17 @@
 {% extends 'awwards/base.html' %}
 {% block content %}
-<div class="card border" style="width:20rem;">
+<div class="container">
+  {% if messages %}
+    <div class="messages me-5">
+        {% for message in messages %}
+        <h4 {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</h4>
+        {% endfor %}
+    </div>
+  {% endif %}
+</div>
+<div class="card border position-absolute top-50 start-50 translate-middle" style="width:20rem;">
   <form class="my-3 mx-3" method="POST" action="">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-    <!-- <div class="row mb-4"> -->
+    {% csrf_token %}
     <!-- username input -->
     <div class="col mb-4">
       <div class="form-outline">
@@ -52,14 +60,12 @@
         <i class="fab fa-github"></i>
       </button>
     </div>
+
+    <div class="text-center mt-2">
+      <small>Have an Account? <span class="ms-1"><a href="{% url 'signIn' %}">Sign In</a></span>  </small>
+    </div>
   </form>
 </div>
 
-<div class="card border position-absolute top-50 start-50 translate-middle" style="width:20rem;">
-  <form class="my-3 mx-3" method="POST" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary btn-block mb-2">Sign up</button>
-  </form>
-</div>
+
 {% endblock %}
