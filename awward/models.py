@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 import datetime as dt
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -58,3 +59,15 @@ class Users(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+    
+class Profile(models.Model):
+    user = models.ForeignKey('Users', on_delete=models.CASCADE)
+    image = CloudinaryField('image', default='user.png')
+    bio = models.CharField( max_length=100)
+    
+    def save_profile(self):
+        self.save()
+        
+    def __str__(self):
+        return self.bio
+    
