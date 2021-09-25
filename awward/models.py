@@ -71,3 +71,17 @@ class Profile(models.Model):
     def __str__(self):
         return self.bio
     
+class Site(models.Model):
+    screen = CloudinaryField('image')
+    title = models.CharField( max_length=70)
+    description = models.CharField( max_length=200)
+    link = models.URLField( )
+    user =  models.OneToOneField(Users, null=True, on_delete=models.CASCADE,default=None, blank=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    location = models.CharField(max_length=60, blank=True) 
+    
+    def __str__(self):
+        return self.title
+    
+    def save_image(self):
+        self.save()

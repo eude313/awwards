@@ -3,10 +3,14 @@ from django.shortcuts import redirect, render
 from awward.models import Users
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+from awward.models import *
 # Create your views here.
 
 def home(request):
-    return render(request, 'awwards/home.html')
+    current_user = request.user
+    profile_info = Profile.objects.filter(user=current_user).first()
+    context = {'profile':profile_info}
+    return render(request, 'awwards/home.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -40,3 +44,31 @@ def signIn(request):
 def signOut(request):
     logout(request)
     return redirect('signIn')
+
+def profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        image = request.FILES['image']
+        bio = request.POST['bio']
+        profile = Profile(user=current_user, image=image, bio=bio)
+        profile.save()
+        return redirect('profile')
+    profile_info = Profile.objects.filter(user=current_user).first()
+    context= {'profile':profile_info}   
+    return render(request, 'awwards/profile.html', context)
+
+
+def post(request):
+    current_user = request.user
+    if request.method == 'POST':
+        screen = request.FILES['screen']
+        description = request.POST['description']
+        link = request.POST['link']
+        post = Site(user=current_user, screen_shot=screen, description=description, link=link)
+        post.save()
+        messages.add_message(request, messages.SUCCESS, "post created successfully")
+        return redirect('home')
+    else:
+        post = Site.objects.all()
+        context = {'post': post}
+        return render(request, 'awwards/post.html', context)

@@ -72,7 +72,7 @@
           </li>
           
           {% if user.is_authenticated %}
-            <li class="nav-item" style="height:50px;  margin-top:1.1rem; max-width:100%;">
+            <li class="nav-item" style="height:50px;  position:relative; left:1.55rem;  margin-top:1rem; max-width:100%;">
               <!-- Avatar -->
               <a  class="dropdown-toggle d-flex align-items-center hidden-arrow"
                 href="#"
@@ -80,15 +80,15 @@
                 role="button"
                 data-mdb-toggle="dropdown"
                 aria-expanded="false">
-                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                <img src="{{ profile.image.url }}"
                   class="rounded-circle"
-                  height="35"
+                  height="40"
                   alt=""
                   loading="lazy"/>
-              </a>
-              <ul class="border dropdown-menu dropdown-menu-end mt-1" aria-labelledby="dropdownMenuLink">
+               </a>
+              <ul class="border dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                 <li>
-                  <a class="dropdown-item" href="#">My profile</a>
+                  <a class="dropdown-item" href="{% url 'profile' %}">My profile</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">Settings</a>
@@ -98,8 +98,8 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item ms-2" style=" background-color: #49c5b6; margin-top:10px; width:100%; height:2.9rem; margin-right:-1.5rem;">
-              <a class="nav-link " style="margin-top:-0.5rem;" href="#"><span class="text-white" style="font-size:18px;">SUBMIT YOUR SITE!</span></a>
+            <li class="nav-item ms-2" style="background-color: #49c5b6; margin-top:10px; position:relative; left:1.55rem; width:100%; height:2.9rem;">
+              <a class="nav-link " style="margin-top:-0.5rem;" href="{% url 'post' %}"><span class="text-white" style="font-size:18px;">SUBMIT YOUR SITE!</span></a>
             </li>
             {% else %}
               <li class="nav-item" style="max-width:100%; margin-top:26px;">

@@ -19,6 +19,7 @@
     <div class="row mt-3">
         <div class="col-md-3">
             <div class="border" style='cursor: pointer;'>
+                {% for post in posts %}
                 <div class='hover-overlay cord'>
                     <img
                     src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
@@ -54,14 +55,17 @@
                             September 21, 2021
                         </small>
                     </div>
+
+                {% endfor %}
+
                     <div class="d-flex pb-2 justify-content-between">
                         <div>
-                            <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                            <img src="{{ profile.image.url }}"
                             class="rounded-circle"
                             height="30"
                             alt=""
                             loading="lazy"/>
-                            <small class="text-uppercase" style="font-size: 12px;">By Bazenga</small>
+                            <small class="text-uppercase" style="font-size: 12px;">By {{ profile.user.username }}</small>
                         </div>
                         <div>
                             <span class="badge rounded-pill"   data-mdb-toggle="tooltip"
