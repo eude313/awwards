@@ -57,18 +57,18 @@ def profile(request):
     context= {'profile':profile_info}   
     return render(request, 'awwards/profile.html', context)
 
-
 def post(request):
     current_user = request.user
     if request.method == 'POST':
-        screen = request.FILES['screen']
+        title = request.POST['title']
+        screen = request.FILES['image']
         description = request.POST['description']
         link = request.POST['link']
-        post = Site(user=current_user, screen_shot=screen, description=description, link=link)
+        post = Site(user=current_user, title=title, screen=screen, description=description, link=link)
         post.save()
         messages.add_message(request, messages.SUCCESS, "post created successfully")
         return redirect('home')
     else:
         post = Site.objects.all()
-        context = {'post': post}
+        context = {'posts': post}
         return render(request, 'awwards/post.html', context)
