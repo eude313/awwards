@@ -1,28 +1,30 @@
 {% extends 'awwards/base.html' %}
 {% load static %}
 {% block content %}
-
-<div class="bg-image" style="cursor:pointer;">
-   <a href=""> <img
-      src="https://mdbootstrap.com/img/new/standard/city/053.jpg"
+<!-- 
+<div class="bg-image" style="cursor:pointer;"> -->
+    <!-- {% for post in posts %}
+   <a href="{{ post.url }}"> <img
+      src="{{ post.screen.url }}"
       class="img-fluid" style="width:100%; height:77vh; cursor:pointer;"
       alt="Sample"
-    /></a>
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
+    /></a> -->
+    <!-- <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
       <div class="d-flex justify-content-center align-items-center h-100">
          <p class="text-white mb-0">Can you see me?</p>
       </div>
-    </div>
-</div>
+    </div> -->
+    <!-- {% endfor %}
+</div> -->
 
 <div class="container-xxl">
     <div class="row mt-3">
+         {% for post in posts %}
         <div class="col-md-3">
             <div class="border" style='cursor: pointer;'>
-                {% for post in posts %}
                 <div class='hover-overlay cord'>
                     <img
-                    src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                    src="{{ post.screen.url }}"
                     class="card-img-top" style="height:29vh;"
                     alt="...."/>
                 </div>
@@ -45,19 +47,16 @@
                 </div>
                 <div class="px-2">
                     <div class="mt-2" style="font-size: 18px;">
-                        Bazenga
+                        {{ post.user.username }}
                     </div>
                     <div class="my-2 d-flex justify-content-between">
                         <small style="font-size: 14px;">
-                            From
+                            From {{ post.location }}
                         </small>
                         <small  style="font-size: 14px;">
-                            September 21, 2021
+                            {{ post.created_time | timesince }} ago
                         </small>
                     </div>
-
-                {% endfor %}
-
                     <div class="d-flex pb-2 justify-content-between">
                         <div>
                             <img src="{{ profile.image.url }}"
@@ -87,8 +86,8 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-
 </div>
 
 {% endblock %}

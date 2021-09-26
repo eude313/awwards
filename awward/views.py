@@ -8,8 +8,9 @@ from awward.models import *
 
 def home(request):
     current_user = request.user
+    post = Site.objects.all()
     profile_info = Profile.objects.filter(user=current_user).first()
-    context = {'profile':profile_info}
+    context = {'profile':profile_info, 'posts':post}
     return render(request, 'awwards/home.html', context)
 
 def register(request):
@@ -58,17 +59,15 @@ def profile(request):
     return render(request, 'awwards/profile.html', context)
 
 def post(request):
-    current_user = request.user
     if request.method == 'POST':
         title = request.POST['title']
-        screen = request.FILES['image']
+        screen = request.FILES['screen']
         description = request.POST['description']
         link = request.POST['link']
-        post = Site(user=current_user, title=title, screen=screen, description=description, link=link)
+        post = Site(title=title, screen=screen, description=description, link=link)
         post.save()
         messages.add_message(request, messages.SUCCESS, "post created successfully")
         return redirect('home')
-    else:
-        post = Site.objects.all()
-        context = {'posts': post}
-        return render(request, 'awwards/post.html', context)
+    post = Site.objects.all()
+    context = {'posts': post}
+    return render(request, 'awwards/post.html', context)

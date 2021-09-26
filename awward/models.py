@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 import datetime as dt
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
 
 # Create your models here.
 
@@ -77,7 +78,7 @@ class Site(models.Model):
     description = models.CharField( max_length=200)
     link = models.URLField( )
     user =  models.OneToOneField(Users, null=True, on_delete=models.CASCADE,default=None, blank=True)
-    date_posted = models.DateTimeField(auto_now_add=True)
+    created_time = models.DateTimeField(default=timezone.now)
     location = models.CharField(max_length=60, blank=True) 
     
     def __str__(self):
