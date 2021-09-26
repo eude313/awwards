@@ -71,3 +71,10 @@ def post(request):
     post = Site.objects.all()
     context = {'posts': post}
     return render(request, 'awwards/post.html', context)
+
+def viewpost(request, pk):
+    posts = Site.objects.get(id=pk)
+    context = {'post': posts}
+    return render(request, 'awwards/view-post.html', context)
+
+

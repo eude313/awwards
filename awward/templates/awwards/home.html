@@ -1,53 +1,39 @@
 {% extends 'awwards/base.html' %}
 {% load static %}
 {% block content %}
-<!-- 
-<div class="bg-image" style="cursor:pointer;"> -->
-    <!-- {% for post in posts %}
-   <a href="{{ post.url }}"> <img
-      src="{{ post.screen.url }}"
+
+<div class="bg-image" style="cursor:pointer;">
+    <img
+      src="https://mdbootstrap.com/img/new/slides/041.jpg"
       class="img-fluid" style="width:100%; height:77vh; cursor:pointer;"
       alt="Sample"
-    /></a> -->
-    <!-- <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
+    />
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
       <div class="d-flex justify-content-center align-items-center h-100">
          <p class="text-white mb-0">Can you see me?</p>
       </div>
-    </div> -->
-    <!-- {% endfor %}
-</div> -->
+    </div>
+</div>
 
 <div class="container-xxl">
     <div class="row mt-3">
          {% for post in posts %}
         <div class="col-md-3">
             <div class="border" style='cursor: pointer;'>
-                <div class='hover-overlay cord'>
-                    <img
+                <div class='cord '>
+                    <a href="{%  url 'viewpost' post.id %}"><img
                     src="{{ post.screen.url }}"
-                    class="card-img-top" style="height:29vh;"
-                    alt="...."/>
-                </div>
-                <div class="mask-1">
-                    <div class="d-flex justify-content-between">
-                        <div>
-
-                        </div>
-                        <div class="hover-overlay ">
-                            <button
-                            type="button"
-                            class="btn btn-outline-light btn-rounded"
-                            data-mdb-ripple-color="light"
-                            style="height:5vh; font-size: 10px;"
-                            >
-                            Dark
-                            </button>
-                        </div> 
-                    </div>
+                    class="img-fluid" style="width:100%; height:34vh;"
+                    alt="...."/></a> 
                 </div>
                 <div class="px-2">
-                    <div class="mt-2" style="font-size: 18px;">
-                        {{ post.user.username }}
+                    <div class="my-2 d-flex justify-content-between">
+                        <small style="font-size: 14px;">
+                           By : {{ post.user }}
+                        </small>
+                        <small  style="font-size: 14px;">
+                            title : {{ post.title }}
+                        </small>
                     </div>
                     <div class="my-2 d-flex justify-content-between">
                         <small style="font-size: 14px;">

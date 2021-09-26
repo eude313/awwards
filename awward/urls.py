@@ -8,4 +8,5 @@ urlpatterns = [
     path('signOut', signOut, name='signOut' ),
     path('profile', profile, name='profile' ),
     path('post', post, name='post' ),
+    path('veiwpost/<str:pk>/', viewpost, name='viewpost' ),
 ]
