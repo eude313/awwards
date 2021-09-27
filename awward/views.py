@@ -9,8 +9,12 @@ from awward.models import *
 def home(request):
     current_user = request.user
     post = Site.objects.all()
+    if request.method=='GET':
+        query = request.GET.get('q')
+        if query:
+            searched = Site.objects.filter(title__icontains=query)
     profile_info = Profile.objects.filter(user=current_user).first()
-    context = {'profile':profile_info, 'posts':post}
+    context = {'profile':profile_info, 'posts':post, 'searched':searched}
     return render(request, 'awwards/home.html', context)
 
 def register(request):
@@ -74,6 +78,9 @@ def post(request):
 
 def viewpost(request, pk):
     posts = Site.objects.get(id=pk)
+    if request.method == 'POST':
+       posts.delete()
+       return redirect('home')
     context = {'post': posts}
     return render(request, 'awwards/view-post.html', context)
 
