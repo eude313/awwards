@@ -5,13 +5,13 @@
 }
 body {
     background-color: white;
-    color: black;
+    color: rgb(0, 0, 0);
     
 }
   
 .dark-mode {
-    background-color: gray;
     color: white;
+    background: rgb(0, 0, 0);
 }
   
 .sidenav {
@@ -21,7 +21,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -41,6 +41,10 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.top:hover {
+    color: rgb(177, 177, 177);
 }
   
 #main {

@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os 
-from decouple import config
-from decouple import config
+import dj_database_url
+from decouple import config, Csv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -29,8 +29,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,17 +79,26 @@ WSGI_APPLICATION = 'awwards.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'USER': config('DB_USER'),
-        'HOST': config('DB_HOST'),
+
+
+PRODUCTION = config('PRODUCTION')
+if PRODUCTION == False:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('NAME'),
+            'USER': config('USER'),
+            'PASSWORD': config('PASSWORD'),
+            'HOST': config('HOST'),
+        }
     }
-}
 
-
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
+    
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', cast=Csv())
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
